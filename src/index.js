@@ -1,17 +1,57 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+// import App from "./App";
 
+//make the var and print to
+const name = "Kundan";
+const Currentyear = new Date();
+const year = Currentyear.getFullYear();
+const img = "https://picsum.photos/600/300";
+//the way to render the components....
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <div>
+    <h1>¡Hola! Como estas</h1>
+    <div>
+      <img src={img + "?greyscale"} alt="Autogenrate Pics" />
+    </div>
+  </div>,
+  document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//times section
+const date = new Date();
+const CurrentTimes = date.getHours();
+let greet;
+//custom style
+const customStyle = {
+  color: " ",
+};
+if (CurrentTimes < 12) {
+  greet = "Good Morning";
+  customStyle.color = "red";
+} else if (CurrentTimes < 18) {
+  greet = "Good Afternoon";
+  customStyle.color = "Green";
+} else {
+  greet = "Good Night";
+  customStyle.color = "Blue";
+}
+
+ReactDOM.render(
+  <h1 className="heading" style={customStyle}>
+    {greet}
+  </h1>,
+  document.getElementById("times")
+);
+///components
+
+//footer
+ReactDOM.render(
+  <div>
+    <p>Your Lucky Number is {Math.floor(Math.random() * 10)}</p>
+    <p>Created By {name}</p>
+    <p>Copyright {year}</p>
+  </div>,
+  document.getElementById("subdiv")
+);
